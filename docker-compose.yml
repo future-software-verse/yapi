@@ -27,7 +27,8 @@ services:
     container_name: mongo
     # restart: always
     ports:
-      - 127.0.0.1:27017:27017
+     # - 127.0.0.1:27017:27017  去掉本地限制
+       - 27017:27017
     volumes:
       - ~/data/yapi/mongodb:/data/db #db dir
     networks:
