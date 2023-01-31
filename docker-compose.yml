@@ -17,6 +17,8 @@ services:
       - 127.0.0.1:3000:3000
     volumes:
       - ~/data/yapi/log:/home/log # log dir
+    privileged: true
+    restart: always
     depends_on:
       - mongo
     entrypoint: "bash /wait-for-it.sh mongo:27017 -- entrypoint.sh"
@@ -31,6 +33,8 @@ services:
        - 27017:27017
     volumes:
       - ~/data/yapi/mongodb:/data/db #db dir
+    privileged: true
+    restart: always
     networks:
       - back-net
 networks:
